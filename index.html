@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+	<head>
+		<meta charset="utf-8" />
+		<!--start CSS-->
+		<!--start Bootstrap https://getbootstrap.com/docs/5.2/getting-started/introduction/#quick-start-->
+		<!-- CSS only -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+			crossorigin="anonymous"
+		/>
+		<!--end Bootstrap-->
+		<link href="./lib/css/main.css" rel="stylesheet" type="text/css" />
+		<!--end CSS-->
+		<!--start Open Graph Data-->
+		<meta
+			property="og:image:alt"
+			content="Image showing the CoffeeDrop logo."
+		/>
+		<meta property="og:image" content="./lib/images/logo.svg" />
+		<meta property="og:locale" content="en_GB" />
+		<meta
+			property="og:description"
+			content="CoffeeDrop allows you to get paid for recycling your Nespresso pods!"
+		/>
+		<meta property="og:site_name" content="CoffeeDrop" />
+		<meta property="og:title" content="CoffeeDrop" />
+		<meta property="og:type" content="website" />
+		<!--end Graph Data end-->
+		<link
+			href="./lib/images/coffee-beans.svg"
+			rel="icon"
+			sizes="any"
+			type="image/svg+xml"
+		/>
+		<meta http-equiv="x-ua-compatible" content="IE=edge" />
+		<meta name="author" content="Jesse Abadilla" />
+		<meta
+			name="description"
+			content="CoffeeDrop allows you to get paid for recycling your Nespresso pods!"
+		/>
+		<meta
+			name="keywords"
+			content="cash,coffee,money,nespresso,recycle,recycling"
+		/>
+		<meta name="theme-color" content="#28e7a8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>CoffeeDrop</title>
+		<!--[if lt IE 9]>
+			<script src="lib/js/html5shiv-printshiv.min.js"></script>
+		<![endif]-->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+	</head>
+	<body>
+		<header id="header" class="dark section-row">
+			<div class="left-right padding">
+				<div id="header-top">
+					<div id="logo-header">
+						<!--TODO: Fix this and footer logo such that they use the proper font.-->
+						<a href="#"><img src="./lib/images/logo.svg" alt="CoffeeDrop" /></a>
+					</div>
+					<div id="navigation-bar" class="top-nav">
+						<nav>
+							<a href="#">Login</a>
+							<a href="#">Download iOS App</a>
+							<a href="#">Download Android App</a>
+							  <a
+								href="javascript:void(0);"
+								class="icon"
+								onclick="show_navigation()"
+							>
+								<i class="fa fa-bars"></i>
+							</a>
+						</nav>
+					</div>
+				</div>
+				<div id="header-bottom">
+					<div class="left">
+						<div id="header-texts">
+							<h1 id="tag-line">Recycle your <br />Nespresso in style!</h1>
+							<p id="after-tag-line">
+								We can recycle your coffee pods for <br />cashback or free
+								coffee!
+							</p>
+						</div>
+						<div id="download-buttons">
+							<a href="#"
+								><picture
+									><source
+										srcset="./lib/images/google-play@2x.png"
+										type="image/png"
+									/>
+									<img
+										src="./lib/images/google-play.png"
+										alt="Get it on Google Play"
+									/> </picture
+							></a>
+							<a href="#"
+								><picture
+									><source
+										srcset="./lib/images/app-store@2x.png"
+										type="image/png" />
+									<img
+										src="./lib/images/app-store.png"
+										alt="Download iOS on the App Store" /></picture
+							></a>
+						</div>
+					</div>
+					<div class="right">
+						<div id="mockup">
+							<!-- <picture
+									><source
+										srcset="./lib/images/app-mockup@2x.png"
+										type="image/png"
+									/>
+									<img
+										src="./lib/images/app-mockup.png"
+										alt="CoffeeDrop mockup image."
+									/>
+								</picture> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<section id="how-it-works" class="section-row">
+				<div class="left-right padding">
+					<header><h2>How it works</h2></header>
+					<table>
+						<colgroup>
+							<col class="step" />
+							<col class="arrow" />
+							<col class="step" />
+							<col class="arrow" />
+							<col class="step" />
+						</colgroup>
+						<tbody>
+							<tr>
+								<td>
+									<img src="./lib/images/icon-1.svg" alt="A coffee maker." />
+								</td>
+								<td>
+									<img
+										src="./lib/images/arrow.svg"
+										alt="An arrow pointing to the next step."
+									/>
+								</td>
+								<td>
+									<img src="./lib/images/icon-2.svg" alt="A CoffeeDrop bag." />
+								</td>
+								<td>
+									<img
+										src="./lib/images/arrow.svg"
+										alt="An arrow pointing to the next step."
+									/>
+								</td>
+								<td>
+									<img
+										src="./lib/images/icon-3.svg"
+										alt="A CoffeeDrop staff member."
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p>
+										You can now save the planet in style, thanks to cashback for
+										your nespresso pods at any of our sixteen locations
+										nationwide.
+									</p>
+								</td>
+								<td></td>
+								<td>
+									<p>
+										Simply bring in your used pods, place them in an approved
+										CoffeeDrop bag and bring them into store.
+									</p>
+								</td>
+								<td></td>
+								<td>
+									<p>
+										Our trained staff will quickly calculate your cashback - or
+										better still, you can do it yourself on our handy App
+										available on iOS or Android.
+									</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+			<section id="prices" class="section-row dark">
+				<div class="left-right padding">
+					<header><h2>Prices</h2></header>
+					<table>
+						<thead>
+							<tr>
+								<th scope="col" id="price-lte-50">The first 50 capsules:</th>
+								<th scope="col" id="price-gt-50-lte-500">Capsules 51-500:</th>
+								<th scope="col" id="price-gte-501">Capsules 501+:</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="odd">
+								<td headers="price-lte-50">Ristretto = 2p</td>
+								<td headers="price-gt-50-lte-500">Ristretto = 3p</td>
+								<td headers="price-gte-501">Ristretto = 5p</td>
+							</tr>
+							<tr class="even">
+								<td headers="price-lte-50">Espresso = 4p</td>
+								<td headers="price-gt-50-lte-500">Espresso = 6p</td>
+								<td headers="price-gte-501">Espresso = 10p</td>
+							</tr>
+							<tr class="odd">
+								<td headers="price-lte-50">Lungo = 6p</td>
+								<td headers="price-gt-50-lte-500">Lungo = 9p</td>
+								<td headers="price-gte-501">Lungo = 15p</td>
+							</tr>
+							<!--TODO: Fix these beans. Probably should just be using div + CSS, instead of adding another row since they aren't semantically significant.-->
+							<tr>
+								<td headers="price-lte-50">
+									<img class="beans" src="./lib/images/coffee-beans.svg" />
+								</td>
+								<td headers="price-gt-50-lte-500">
+									<img class="beans" src="./lib/images/coffee-beans.svg" />
+								</td>
+								<td headers="price-gte-501">
+									<img class="beans" src="./lib/images/coffee-beans.svg" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+			<div
+				id="map"
+				class="section-row"
+				title="We have locations across the country!"
+			></div>
+		</main>
+		<footer id="footer" class="dark">
+			<div id="powered-by">
+				<p>This app is powered by</p>
+			</div>
+			<div id="logo-footer">
+				<a href="#"
+					><img src="./lib/images/footer-logo.svg" alt="CoffeeDrop"
+				/></a>
+			</div>
+		</footer>
+		<!--https://developers.google.com/maps/documentation/javascript/overview-->
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initialise_map&v=weekly"
+			defer
+		></script>
+		<script src="./lib/js/main.js" async></script>
+	</body>
+</html>

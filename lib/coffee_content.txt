@@ -1,0 +1,30 @@
+#Site name: 
+CoffeeDrop
+
+
+#Tag line: 
+Recycle your Nespresso in style!
+
+
+#Header 
+Download iOS on the App Store
+Get it on Google Play
+
+#How it works:
+Get paid for recycling your Nespresso pods.
+You can now save the planet in style, thanks to cashback for your nespresso pods at any of our sixteen locations nationwide.
+Simply bring in your used pods, place them in an approved CoffeeDrop bag and bring them into store. 
+Our trained staff will quickly calculate your cashback - or better still, you can do it yourself on our handy App available on iOS or Android
+
+#Prices table: 
+
+The first 50 capsules: [Ristretto = 2p, Espresso = 4p, Lungo = 6p]
+
+Capsules 50-500: [Ristetto = 3p, Espresso = 6p Lungo = 9p]
+
+Capsules 501+: [Ristretto = 5p, Espresso = 10p, Lungo = 15p]
+
+
+#Map: 
+We have locations across the country!
+

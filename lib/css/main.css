@@ -1,0 +1,252 @@
+/*
+TODO:
+* Sort out the misalignment issues.
+* Use other image resolutions provided as well.
+* Remove gray backgrounds on SVG images.
+* Apply house style to map.
+* Fix the rounded corners not working on tables.
+* Add animations to icons (on scroll) and buttons (on hover/click).
+* Could make sections (except for map section) horizontally scrollable on portrait orientation in CSS?
+*/
+
+@font-face {
+	font-family: "Raleway";
+	src: url("../fonts/raleway/Raleway-Regular.ttf");
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Raleway";
+	src: url("../fonts/raleway/Raleway-Bold.ttf");
+	font-weight: bold;
+}
+
+:root {
+	--brown: #373737;
+	--green: #28e7a8;
+}
+
+body {
+	overflow-x: hidden;
+	font-family: "Raleway", Arial, Helvetica, sans-serif;
+	z-index: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+thead {
+	font-family: "Raleway";
+	font-weight: bolder;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.section-row {
+	min-height: 85vh;
+}
+
+.left-right {
+	margin-left: 10vw;
+	margin-right: 10vw;
+}
+
+.dark {
+	background-color: var(--brown);
+	color: white;
+}
+
+.dark a {
+	color: white !important;
+}
+
+.dark a:link,
+.dark a:visited {
+	text-decoration: none;
+}
+
+.dark a:hover {
+	text-decoration: underline;
+}
+
+.dark a:active {
+	text-decoration: none;
+	background-color: var(--green);
+	color:var(--brown);
+}
+
+#header {
+	background-image: url("../images/shutterstock_326070713.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: top center;
+	width: 100%;
+}
+
+#mockup {
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-attachment: scroll;
+	background-image: url("../images/app-mockup.png");
+	min-height: 70vh;
+	width: 100%;
+}
+
+#logo-header {
+	margin-top: 2rem;
+	position: absolute;
+	float: left;
+}
+
+#navigation-bar {
+	margin-top: 2rem;
+	position: relative;
+	float: right;
+	font-size: 1.2rem;
+	z-index: 3;
+}
+
+#navigation-bar a {
+	padding: 0 1rem;
+}
+
+/* https://www.w3schools.com/howto/howto_js_topnav_responsive.asp */
+
+/* Add a black background color to the top navigation */
+.top-nav {
+	overflow: hidden;
+	z-index: 3;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.top-nav .icon {
+	display: none;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+	.top-nav a {
+		display: none;
+		background-color: var(--brown);
+	}
+	.top-nav a.icon {
+		float: right;
+		display: block;
+	}
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+	.top-nav.responsive {
+		position: relative;
+	}
+	.top-nav.responsive a.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.top-nav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
+
+#header-bottom .left {
+	padding: 10% 0;
+}
+
+#header-texts {
+	position: absolute;
+}
+
+#download-buttons {
+	position: absolute;
+	max-width: 25vh;
+	height: auto;
+	margin-top: 200px;
+}
+
+#header-bottom .right {
+	padding-top: 0vh;
+}
+
+main .padding {
+	padding: 10rem 0;
+}
+
+main section,
+#footer {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#how-it-works .arrow,
+#how-it-works .steps {
+	min-width: 5rem;
+}
+
+#prices table {
+	width: 99%;
+	position: relative;
+}
+
+#prices thead {
+	color: var(--green);
+}
+
+#prices .odd {
+	background-color: #4e4e4e;
+}
+
+#prices .even {
+	background-color: #626262;
+}
+
+#prices tbody {
+	text-align: left;
+}
+
+#prices td {
+	border-radius: 1rem;
+	border-collapse: separate;
+}
+
+#prices th,
+#prices td {
+	border-left: 1rem;
+	border-right: 1rem;
+	border-spacing: 1rem;
+	border-color: var(--brown);
+	border-style: solid;
+	min-width: 12rem;
+	padding: 1rem;
+}
+
+#prices .beans {
+	width: auto;
+	min-height: 1rem;
+	margin-top: -2.5rem;
+	text-align: center;
+	padding: 0 40%;
+}
+
+#map {
+	min-height: 85vh;
+	width: auto;
+}
+
+#footer {
+	padding: 1rem 0;
+}
