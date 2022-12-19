@@ -1,3 +1,15 @@
+### todo
+* Sort out the misalignment and overflow issues.
+* Make header stick when scrolling so navbar is always accessible.
+* Use other image resolutions provided as well.
+* Make sure navigation links still work with screen readers in portrait.
+* Add animations to icons (on scroll) and buttons (on hover/click).
+* Periodically ping Image+ API to update map.
+* Use `Set` type to store locations when updating them, to prevent duplicates.
+* Use a real API key (instead of the example one) with permissions configured for the relevant IP address of server to prevent `RefererNotAllowedMapError` error.
+
+---
+
 A brand new start up, CoffeeDrop, have spotted a gap in the market to build an Android and IOS mobile app which shows their existing 16 national coffee shops, listing them as "locations" for recycling Nespresso coffee pods, for which the client will recieve "cashback" - money for each pod.
 
 In addition to the app, they have commissioned a responsive single page website to advertise the service. This has been designed, and now needs building. The client has specified a specific stack of technologies that they would like to see on their site, which are described in the specification below.

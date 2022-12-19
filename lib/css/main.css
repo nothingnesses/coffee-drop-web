@@ -1,12 +1,9 @@
 /*
 TODO:
-* Sort out the misalignment issues.
+* Sort out the misalignment and overflow issues.
+* Make header stick when scrolling so navbar is always accessible.
 * Use other image resolutions provided as well.
-* Remove gray backgrounds on SVG images.
-* Apply house style to map.
-* Fix the rounded corners not working on tables.
 * Add animations to icons (on scroll) and buttons (on hover/click).
-* Could make sections (except for map section) horizontally scrollable on portrait orientation in CSS?
 */
 
 @font-face {
@@ -22,47 +19,42 @@ TODO:
 }
 
 :root {
-	--brown: #373737;
-	--green: #28e7a8;
+	--coffeedrop-brown: #373737;
+	--coffeedrop-green: #28e7a8;
+	--coffeedrop-grey: #4e4e4e;
+	--coffeedrop-lightgrey: #626262;
+	--height-segment: 85vh;
+	/* 3 segments in `main`. */
+	--height-main: calc(3 * var(--height-segment));
+	--border-radius: 5px;
+	--list-item-padding-top-bottom: 0.9rem;
+	--list-item-padding-left-right: 1.5rem;
+	--header-row-fraction: 4fr;
+	/* 4 is from `header-row-fraction` */
+	--height-header-bottom: calc(var(--height-segment) * (1 / (1 + 4)) * 4);
 }
 
-body {
-	overflow-x: hidden;
-	font-family: "Raleway", Arial, Helvetica, sans-serif;
-	z-index: 0;
+/* start utility classes*/
+
+.center {
+	display: grid;
+	text-align: center;
+	align-content: center;
+	justify-content: center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-thead {
-	font-family: "Raleway";
-	font-weight: bolder;
+.columns {
+	display: grid;
+	grid-auto-flow: column;
 }
 
-h2 {
-	font-size: 1.5rem;
-}
-
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-.section-row {
-	min-height: 85vh;
-}
-
-.left-right {
-	margin-left: 10vw;
-	margin-right: 10vw;
+.rows {
+	display: grid;
+	grid-auto-flow: row;
 }
 
 .dark {
-	background-color: var(--brown);
+	background-color: var(--coffeedrop-brown);
 	color: white;
 }
 
@@ -81,172 +73,414 @@ img {
 
 .dark a:active {
 	text-decoration: none;
-	background-color: var(--green);
-	color:var(--brown);
+	background-color: var(--coffeedrop-green);
+	color: var(--coffeedrop-brown);
+}
+
+.segment {
+	height: var(--height-segment);
+}
+
+.margins-left-right {
+	margin: 0 12vw;
+}
+
+.align-top {
+	align-content: flex-start;
+}
+
+/* end utility classes*/
+
+body {
+	/* overflow-x: hidden; */
+	font-family: "Raleway", Arial, Helvetica, sans-serif;
+	display: grid;
+	grid-template-rows: var(--height-segment) var(--height-main) 15vh;
+	font-size: 1.1rem;
+	z-index: 0;
+}
+
+a {
+	z-index: 2 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+thead {
+	font-family: "Raleway";
+	font-weight: bolder;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.4rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+main {
+	height: var(--height-main);
+	z-index: 0;
+	background-color: white;
 }
 
 #header {
-	background-image: url("../images/shutterstock_326070713.jpg");
+	background-image: url("../images/shutterstock_326070713@2x.jpg");
+	background-color: var(--coffeedrop-brown);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	background-position: top center;
-	width: 100%;
+	background-position: top;
+	background-size: cover;
+	z-index: 0;
+}
+
+.header-rows {
+	height: inherit;
+	display: grid;
+	grid-template-rows: 1fr var(--header-row-fraction);
+}
+
+/* Portrait */
+@media screen and (orientation: portrait) {
+	#header-left {
+		align-content: flex-start !important;
+	}
+
+	#download-buttons {
+		grid-auto-flow: row;
+		gap: 1rem;
+	}
+}
+
+/* Tablet landscape */
+@media screen and (max-width: 1080px) and (orientation: landscape) {
+	:root {
+		--height-segment: 67vh;
+	}
+
+	.margins-left-right {
+		margin: 0 3vw;
+	}
+}
+
+/* Tablet portrait */
+@media screen and (max-width: 810px) and (orientation: portrait) {
+	:root {
+		--height-segment: 55vh;
+	}
+
+	#mockup {
+		margin-right: -25vw;
+	}
+
+	#how-it-works header {
+		margin-bottom: -20px;
+	}
+
+	#steps .arrow {
+		margin-top: 30px;
+	}
+
+	#steps .arrow img {
+		width: 50px;
+	}
+
+	#steps img {
+		max-width: 120px;
+	}
+}
+
+/* Phone portrait */
+@media screen and (max-width: 375px) and (orientation: portrait) {
+	:root {
+		--height-segment: 100vh;
+		--header-row-fraction: 6fr;
+		--height-how-it-works: 150vh;
+		--height-main: calc(2 * var(--height-segment) + var(--height-how-it-works));
+	}
+
+	body,
+	main,
+	main *,
+	footer {
+		max-width: 100vw !important;
+	}
+
+	.margins-left-right {
+		margin: 0 5vw;
+	}
+
+	#mockup {
+		/* height: 50vh !important;
+		width: calc(50vh * 1308 / 926) !important; */
+		top: 50vh !important;
+		left: 0;
+		width: 100vw !important;
+		background-position: center bottom !important;
+	}
+
+	#after-tag-line {
+		display: none;
+	}
+
+	#how-it-works {
+		height: var(--height-how-it-works);
+	}
+
+	body {
+		grid-template-rows: var(--height-segment) var(--height-main) 15vh;
+	}
+
+	main {
+		height: var(--height-main);
+	}
+
+	.arrow {
+		display: none;
+	}
+
+	.step {
+		max-width: 80vw;
+	}
+
+	#steps {
+		grid-auto-flow: row;
+		gap: 1rem;
+	}
+
+	#steps img {
+		max-width: 80px;
+	}
+
+	#prices-columns {
+		gap: 0.5rem;
+	}
+
+	#prices li {
+		max-width: 100px !important;
+	}
 }
 
 #mockup {
-	background-repeat: no-repeat;
-	background-position: bottom right;
+	background-image: url("../images/app-mockup@2x.png");
+	background-color: transparent;
 	background-attachment: scroll;
-	background-image: url("../images/app-mockup.png");
-	min-height: 70vh;
-	width: 100%;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: cover;
+	position: absolute;
+	height: var(--height-header-bottom);
+	width: calc(var(--height-header-bottom) * 1308 / 926);
+	right: 10vw;
+	top: calc(var(--height-segment) - var(--height-header-bottom));
+	z-index: -1;
 }
 
 #logo-header {
-	margin-top: 2rem;
-	position: absolute;
-	float: left;
+	align-content: center;
+	display: grid;
 }
 
-#navigation-bar {
-	margin-top: 2rem;
-	position: relative;
-	float: right;
-	font-size: 1.2rem;
-	z-index: 3;
+#download-buttons {
+	width: calc(160px + 162px + 30px);
 }
 
-#navigation-bar a {
-	padding: 0 1rem;
+#header-left {
+	height: var(--height-header-bottom);
+	align-content: center;
+	gap: 1rem;
+}
+
+#header-top {
+	justify-content: space-between;
+}
+
+#navbar-container {
+	display: grid;
+	align-content: center;
+}
+
+#navbar {
+	justify-content: center;
+	gap: 3rem;
 }
 
 /* https://www.w3schools.com/howto/howto_js_topnav_responsive.asp */
 
-/* Add a black background color to the top navigation */
 .top-nav {
 	overflow: hidden;
-	z-index: 3;
 }
-
-/* Hide the link that should open and close the topnav on small screens */
-.top-nav .icon {
-	display: none;
-}
-
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
+@media screen and (orientation: portrait) {
+	#navbar-container {
+		text-align: right;
+	}
+	.top-nav {
+		display: block;
+	}
 	.top-nav a {
 		display: none;
-		background-color: var(--brown);
+		background-color: rgba(0, 0, 0, 0.4);
 	}
 	.top-nav a.icon {
-		float: right;
 		display: block;
-	}
-}
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
-	.top-nav.responsive {
-		position: relative;
-	}
-	.top-nav.responsive a.icon {
-		position: absolute;
-		right: 0;
-		top: 0;
+		background-color: transparent;
+		top: 50%;
 	}
 	.top-nav.responsive a {
-		float: none;
 		display: block;
-		text-align: left;
 	}
 }
 
-#header-bottom .left {
-	padding: 10% 0;
+@media screen and (orientation: landscape) {
+	#navbar-container {
+		display: grid;
+		align-content: center;
+	}
+
+	#navbar {
+		display: grid;
+		justify-content: center;
+		gap: 3rem;
+		grid-auto-flow: column;
+	}
+
+	#navbar-icon {
+		display: none;
+	}
 }
 
-#header-texts {
-	position: absolute;
+#how-it-works {
+	gap: 1rem;
 }
 
-#download-buttons {
-	position: absolute;
-	max-width: 25vh;
-	height: auto;
-	margin-top: 200px;
+.step {
+	min-width: 150px;
+	gap: 2rem;
+	font-size: 1rem;
 }
 
-#header-bottom .right {
-	padding-top: 0vh;
+.step img {
+	width: 180px;
+	gap: 2rem;
 }
 
-main .padding {
-	padding: 10rem 0;
+.arrow {
+	min-width: 70px;
+	margin-top: 80px;
 }
 
-main section,
-#footer {
+#prices {
+	gap: 2rem;
+	margin-top: -3rem;
+}
+
+#prices ul {
+	list-style-type: none;
+}
+
+#prices h2 {
 	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
 }
 
-#how-it-works .arrow,
-#how-it-works .steps {
-	min-width: 5rem;
+#prices-columns {
+	display: grid;
+	gap: 1.8rem;
 }
 
-#prices table {
-	width: 99%;
-	position: relative;
-}
-
-#prices thead {
-	color: var(--green);
+#prices h3 {
+	color: var(--coffeedrop-green);
+	font-size: 1rem;
+	padding-bottom: 0.5rem;
 }
 
 #prices .odd {
-	background-color: #4e4e4e;
+	background-color: var(--coffeedrop-grey);
 }
 
 #prices .even {
-	background-color: #626262;
+	background-color: var(--coffeedrop-lightgrey);
 }
 
-#prices tbody {
+#prices .grey-background {
+	background-color: var(--coffeedrop-grey);
+	text-align: inherit;
+	min-width: inherit;
+	height: inherit;
+}
+
+#prices ul {
+	padding-left: 0;
+}
+
+#prices li {
 	text-align: left;
+	min-width: 24vw;
 }
 
-#prices td {
-	border-radius: 1rem;
-	border-collapse: separate;
+#prices .middle {
+	border-radius: var(--border-radius);
+	text-align: inherit;
+	min-width: inherit;
+	padding: var(--list-item-padding-top-bottom)
+		var(--list-item-padding-left-right);
 }
 
-#prices th,
-#prices td {
-	border-left: 1rem;
-	border-right: 1rem;
-	border-spacing: 1rem;
-	border-color: var(--brown);
-	border-style: solid;
-	min-width: 12rem;
-	padding: 1rem;
+#prices li:first-child,
+#prices li:last-child {
+	padding: var(--list-item-padding-top-bottom)
+		var(--list-item-padding-left-right);
 }
 
-#prices .beans {
-	width: auto;
-	min-height: 1rem;
-	margin-top: -2.5rem;
-	text-align: center;
-	padding: 0 40%;
+#prices li:first-child {
+	border-top-left-radius: var(--border-radius);
+	border-top-right-radius: var(--border-radius);
+}
+
+#prices li:last-child {
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+}
+
+.beans {
+	background-image: url("../images/coffee-beans.svg");
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: contain;
+	background-position: center top;
+	height: 2.2rem;
+	margin-top: -1.5rem;
+	z-index: 1;
 }
 
 #map {
-	min-height: 85vh;
+	min-height: var(--height-segment);
 	width: auto;
 }
 
-#footer {
-	padding: 1rem 0;
+#footer-logo {
+	min-width: 179px;
+}
+
+footer {
+	font-size: 0.9rem;
+}
+
+footer p {
+	margin-bottom: -1%;
+	z-index: 1;
+}
+
+footer a {
+	margin-top: -1%;
 }

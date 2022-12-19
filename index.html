@@ -3,6 +3,13 @@
 	<head>
 		<meta charset="utf-8" />
 		<!--start CSS-->
+		<!--start normalize.css https://github.com/necolas/normalize.css/-->
+		<link
+			href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<!--end normalize.css-->
 		<!--start Bootstrap https://getbootstrap.com/docs/5.2/getting-started/introduction/#quick-start-->
 		<!-- CSS only -->
 		<link
@@ -15,10 +22,7 @@
 		<link href="./lib/css/main.css" rel="stylesheet" type="text/css" />
 		<!--end CSS-->
 		<!--start Open Graph Data-->
-		<meta
-			property="og:image:alt"
-			content="Image showing the CoffeeDrop logo."
-		/>
+		<meta property="og:image:alt" content="The CoffeeDrop logo." />
 		<meta property="og:image" content="./lib/images/logo.svg" />
 		<meta property="og:locale" content="en_GB" />
 		<meta
@@ -58,204 +62,225 @@
 		/>
 	</head>
 	<body>
-		<header id="header" class="dark section-row">
-			<div class="left-right padding">
-				<div id="header-top">
-					<div id="logo-header">
-						<!--TODO: Fix this and footer logo such that they use the proper font.-->
-						<a href="#"><img src="./lib/images/logo.svg" alt="CoffeeDrop" /></a>
-					</div>
-					<div id="navigation-bar" class="top-nav">
-						<nav>
+		<header id="header" class="dark segment">
+			<div class="margins-left-right header-rows">
+				<div class="columns" id="header-top">
+					<a href="#" id="logo-header"
+						><img
+							src="./lib/images/logo.svg"
+							alt="The CoffeeDrop logo."
+							title="CoffeeDrop"
+							width="179"
+							height="40"
+					/></a>
+					<div id="navbar-container">
+						<a
+							href="javascript:void(0);"
+							class="icon"
+							onclick="show_navigation()"
+							id="navbar-icon"
+						>
+							<i class="fa fa-bars"></i>
+						</a>
+						<nav id="navbar" class="top-nav navbar columns">
 							<a href="#">Login</a>
 							<a href="#">Download iOS App</a>
 							<a href="#">Download Android App</a>
-							  <a
-								href="javascript:void(0);"
-								class="icon"
-								onclick="show_navigation()"
-							>
-								<i class="fa fa-bars"></i>
-							</a>
 						</nav>
 					</div>
 				</div>
-				<div id="header-bottom">
-					<div class="left">
-						<div id="header-texts">
-							<h1 id="tag-line">Recycle your <br />Nespresso in style!</h1>
-							<p id="after-tag-line">
-								We can recycle your coffee pods for <br />cashback or free
-								coffee!
-							</p>
-						</div>
-						<div id="download-buttons">
+				<div>
+					<div class="rows" id="header-left">
+						<h1 id="tag-line">Recycle your <br />Nespresso in style!</h1>
+						<p id="after-tag-line">
+							We can recycle your coffee pods for <br />cashback or free coffee!
+						</p>
+						<div class="columns" id="download-buttons">
+							<a href="#"
+								><picture
+									><source
+										srcset="./lib/images/app-store@2x.png"
+										type="image/png"
+										width="324"
+										height="96" />
+									<img
+										src="./lib/images/app-store.png"
+										alt="Button to download the iOS app from the Apple App Store."
+										title="Download iOS on the App Store"
+										width="162"
+										height="48" /></picture
+							></a>
 							<a href="#"
 								><picture
 									><source
 										srcset="./lib/images/google-play@2x.png"
 										type="image/png"
+										width="320"
+										height="96"
 									/>
 									<img
 										src="./lib/images/google-play.png"
-										alt="Get it on Google Play"
+										alt="Button to download the Android app from Google Play."
+										title="Get it on Google Play"
+										width="160"
+										height="48"
 									/> </picture
-							></a>
-							<a href="#"
-								><picture
-									><source
-										srcset="./lib/images/app-store@2x.png"
-										type="image/png" />
-									<img
-										src="./lib/images/app-store.png"
-										alt="Download iOS on the App Store" /></picture
 							></a>
 						</div>
 					</div>
-					<div class="right">
-						<div id="mockup">
-							<!-- <picture
-									><source
-										srcset="./lib/images/app-mockup@2x.png"
-										type="image/png"
-									/>
-									<img
-										src="./lib/images/app-mockup.png"
-										alt="CoffeeDrop mockup image."
-									/>
-								</picture> -->
-						</div>
+					<div id="mockup">
+						<!-- <picture
+							><source
+								srcset="./lib/images/app-mockup@2x.png"
+								type="image/png"
+								width="1308"
+								height="926"
+							/>
+							<img
+								src="./lib/images/app-mockup.png"
+								alt="CoffeeDrop app mockup image."
+								title="CoffeeDrop app mockup"
+								width="654"
+								height="463"
+							/>
+						</picture> -->
 					</div>
 				</div>
 			</div>
 		</header>
-		<main>
-			<section id="how-it-works" class="section-row">
-				<div class="left-right padding">
-					<header><h2>How it works</h2></header>
-					<table>
-						<colgroup>
-							<col class="step" />
-							<col class="arrow" />
-							<col class="step" />
-							<col class="arrow" />
-							<col class="step" />
-						</colgroup>
-						<tbody>
-							<tr>
-								<td>
-									<img src="./lib/images/icon-1.svg" alt="A coffee maker." />
-								</td>
-								<td>
-									<img
-										src="./lib/images/arrow.svg"
-										alt="An arrow pointing to the next step."
-									/>
-								</td>
-								<td>
-									<img src="./lib/images/icon-2.svg" alt="A CoffeeDrop bag." />
-								</td>
-								<td>
-									<img
-										src="./lib/images/arrow.svg"
-										alt="An arrow pointing to the next step."
-									/>
-								</td>
-								<td>
-									<img
-										src="./lib/images/icon-3.svg"
-										alt="A CoffeeDrop staff member."
-									/>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>
-										You can now save the planet in style, thanks to cashback for
-										your nespresso pods at any of our sixteen locations
-										nationwide.
-									</p>
-								</td>
-								<td></td>
-								<td>
-									<p>
-										Simply bring in your used pods, place them in an approved
-										CoffeeDrop bag and bring them into store.
-									</p>
-								</td>
-								<td></td>
-								<td>
-									<p>
-										Our trained staff will quickly calculate your cashback - or
-										better still, you can do it yourself on our handy App
-										available on iOS or Android.
-									</p>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+		<main class="rows">
+			<section id="how-it-works" class="center segment margins-left-right">
+				<header>
+					<h2>How it works</h2>
+				</header>
+				<div class="columns" id="steps">
+					<div class="step rows align-top">
+						<div class="center">
+							<img
+								src="./lib/images/icon-1.svg"
+								alt="A coffee maker that uses Nespresso pods."
+								width="150"
+								height="150"
+							/>
+						</div>
+						<p>
+							You can now save the planet in style, thanks to cashback for your
+							nespresso pods at any of our sixteen locations nationwide.
+						</p>
+					</div>
+					<div class="arrow align-top">
+						<img
+							src="./lib/images/arrow.svg"
+							alt="An arrow pointing to the next step."
+							width="70"
+							height="49"
+						/>
+					</div>
+					<div class="step rows align-top">
+						<div class="center">
+							<img
+								src="./lib/images/icon-2.svg"
+								alt="A CoffeeDrop bag."
+								width="150"
+								height="150"
+							/>
+						</div>
+						<p>
+							Simply bring in your used pods, place them in an approved
+							CoffeeDrop bag and bring them into store.
+						</p>
+					</div>
+					<div class="arrow align-top">
+						<img
+							src="./lib/images/arrow.svg"
+							alt="An arrow pointing to the next step."
+							width="70"
+							height="49"
+						/>
+					</div>
+					<div class="step rows align-top">
+						<div class="center">
+							<img
+								src="./lib/images/icon-3.svg"
+								alt="A CoffeeDrop staff member."
+								width="150"
+								height="150"
+							/>
+						</div>
+						<p>
+							Our trained staff will quickly calculate your cashback - or better
+							still, you can do it yourself on our handy App available on iOS or
+							Android.
+						</p>
+					</div>
 				</div>
 			</section>
-			<section id="prices" class="section-row dark">
-				<div class="left-right padding">
+			<section class="center dark segment">
+				<div class="margins-left-right rows" id="prices">
 					<header><h2>Prices</h2></header>
-					<table>
-						<thead>
-							<tr>
-								<th scope="col" id="price-lte-50">The first 50 capsules:</th>
-								<th scope="col" id="price-gt-50-lte-500">Capsules 51-500:</th>
-								<th scope="col" id="price-gte-501">Capsules 501+:</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="odd">
-								<td headers="price-lte-50">Ristretto = 2p</td>
-								<td headers="price-gt-50-lte-500">Ristretto = 3p</td>
-								<td headers="price-gte-501">Ristretto = 5p</td>
-							</tr>
-							<tr class="even">
-								<td headers="price-lte-50">Espresso = 4p</td>
-								<td headers="price-gt-50-lte-500">Espresso = 6p</td>
-								<td headers="price-gte-501">Espresso = 10p</td>
-							</tr>
-							<tr class="odd">
-								<td headers="price-lte-50">Lungo = 6p</td>
-								<td headers="price-gt-50-lte-500">Lungo = 9p</td>
-								<td headers="price-gte-501">Lungo = 15p</td>
-							</tr>
-							<!--TODO: Fix these beans. Probably should just be using div + CSS, instead of adding another row since they aren't semantically significant.-->
-							<tr>
-								<td headers="price-lte-50">
-									<img class="beans" src="./lib/images/coffee-beans.svg" />
-								</td>
-								<td headers="price-gt-50-lte-500">
-									<img class="beans" src="./lib/images/coffee-beans.svg" />
-								</td>
-								<td headers="price-gte-501">
-									<img class="beans" src="./lib/images/coffee-beans.svg" />
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="columns" id="prices-columns">
+						<div>
+							<h3>The first 50 capsules:</h3>
+							<ul>
+								<li class="odd">Ristretto = 2p</li>
+								<li>
+									<div class="grey-background">
+										<div class="middle even">Espresso = 4p</div>
+									</div>
+								</li>
+								<li class="odd">Lungo = 6p</li>
+							</ul>
+							<div class="beans"></div>
+						</div>
+						<div>
+							<h3>Capsules 51-500:</h3>
+							<ul>
+								<li class="odd">Ristretto = 3p</li>
+								<li>
+									<div class="grey-background">
+										<div class="middle even">Espresso = 6p</div>
+									</div>
+								</li>
+								<li class="odd">Lungo = 9p</li>
+							</ul>
+							<div class="beans"></div>
+						</div>
+						<div>
+							<h3>Capsules 501+:</h3>
+							<ul>
+								<li class="odd">Ristretto = 5p</li>
+								<li>
+									<div class="grey-background">
+										<div class="middle even">Espresso = 10p</div>
+									</div>
+								</li>
+								<li class="odd">Lungo = 15p</li>
+							</ul>
+							<div class="beans"></div>
+						</div>
+					</div>
 				</div>
 			</section>
 			<div
 				id="map"
-				class="section-row"
+				class="segment"
 				title="We have locations across the country!"
 			></div>
 		</main>
-		<footer id="footer" class="dark">
-			<div id="powered-by">
-				<p>This app is powered by</p>
-			</div>
-			<div id="logo-footer">
-				<a href="#"
-					><img src="./lib/images/footer-logo.svg" alt="CoffeeDrop"
-				/></a>
-			</div>
+		<footer id="footer" class="dark center">
+			<p>This app is powered by</p>
+			<a href="#"
+				><img
+					id="footer-logo"
+					src="./lib/images/footer-logo.svg"
+					alt="The CoffeeDrop logo."
+					title="CoffeeDrop"
+					width="179"
+					height="40"
+			/></a>
 		</footer>
 		<!--https://developers.google.com/maps/documentation/javascript/overview-->
+		<!--TODO: Use a real API key (instead of the example one) with permissions configured for the relevant IP address of server to prevent `RefererNotAllowedMapError` error.-->
 		<script
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initialise_map&v=weekly"
 			defer
