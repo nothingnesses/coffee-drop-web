@@ -10,15 +10,6 @@
 			type="text/css"
 		/>
 		<!--end normalize.css-->
-		<!--start Bootstrap https://getbootstrap.com/docs/5.2/getting-started/introduction/#quick-start-->
-		<!-- CSS only -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-			crossorigin="anonymous"
-		/>
-		<!--end Bootstrap-->
 		<link href="./lib/css/main.css" rel="stylesheet" type="text/css" />
 		<!--end CSS-->
 		<!--start Open Graph Data-->
@@ -55,106 +46,85 @@
 		<!--[if lt IE 9]>
 			<script src="lib/js/html5shiv-printshiv.min.js"></script>
 		<![endif]-->
+		<!--https://developers.google.com/maps/documentation/javascript/overview-->
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
 	</head>
 	<body>
-		<header id="header" class="dark segment">
-			<div class="margins-left-right header-rows">
-				<div class="columns" id="header-top">
-					<a href="#" id="logo-header"
-						><img
-							src="./lib/images/logo.svg"
-							alt="The CoffeeDrop logo."
-							title="CoffeeDrop"
-							width="179"
-							height="40"
-					/></a>
-					<div id="navbar-container">
-						<a
-							href="javascript:void(0);"
-							class="icon"
-							onclick="show_navigation()"
-							id="navbar-icon"
-						>
-							<i class="fa fa-bars"></i>
-						</a>
-						<nav id="navbar" class="top-nav navbar columns">
-							<a href="#">Login</a>
-							<a href="#">Download iOS App</a>
-							<a href="#">Download Android App</a>
-						</nav>
-					</div>
-				</div>
-				<div>
-					<div class="rows" id="header-left">
-						<h1 id="tag-line">Recycle your <br />Nespresso in style!</h1>
-						<p id="after-tag-line">
-							We can recycle your coffee pods for <br />cashback or free coffee!
-						</p>
-						<div class="columns" id="download-buttons">
-							<a href="#"
-								><picture
-									><source
-										srcset="./lib/images/app-store@2x.png"
-										type="image/png"
-										width="324"
-										height="96" />
-									<img
-										src="./lib/images/app-store.png"
-										alt="Button to download the iOS app from the Apple App Store."
-										title="Download iOS on the App Store"
-										width="162"
-										height="48" /></picture
-							></a>
-							<a href="#"
-								><picture
-									><source
-										srcset="./lib/images/google-play@2x.png"
-										type="image/png"
-										width="320"
-										height="96"
-									/>
-									<img
-										src="./lib/images/google-play.png"
-										alt="Button to download the Android app from Google Play."
-										title="Get it on Google Play"
-										width="160"
-										height="48"
-									/> </picture
-							></a>
-						</div>
-					</div>
-					<div id="mockup">
-						<!-- <picture
-							><source
-								srcset="./lib/images/app-mockup@2x.png"
-								type="image/png"
-								width="1308"
-								height="926"
-							/>
-							<img
-								src="./lib/images/app-mockup.png"
-								alt="CoffeeDrop app mockup image."
-								title="CoffeeDrop app mockup"
-								width="654"
-								height="463"
-							/>
-						</picture> -->
-					</div>
-				</div>
+		<!-- Navigation bar -->
+		<header id="header" class="dark">
+			<div class="margin-vertical">
+				<!-- Logo -->
+				<a href="#" id="logo-header"
+					><img
+						src="./lib/images/logo.svg"
+						alt="The CoffeeDrop logo."
+						title="CoffeeDrop"
+						width="179"
+						height="40"
+				/></a>
+				<!-- Hamburger icon -->
+				<input id="side-menu" type="checkbox" />
+				<label id="hamb" for="side-menu"><span id="hamb-line"></span></label>
+				<!-- Menu -->
+				<nav id="nav" class="rows">
+					<a href="#">Login</a>
+					<a href="#">Download iOS App</a>
+					<a href="#">Download Android App</a>
+				</nav>
 			</div>
 		</header>
-		<main class="rows">
-			<section id="how-it-works" class="center segment margins-left-right">
+		<!-- Main content -->
+		<main>
+			<section id="hero" class="segment dark">
+				<div id="hero-content" class="margin-vertical rows">
+					<h1 id="tag-line">Recycle your <br />Nespresso in style!</h1>
+					<p id="after-tag-line">
+						We can recycle your coffee pods for <br />cashback or free coffee!
+					</p>
+					<div id="download-buttons" class="rows">
+						<a href="#"
+							><picture
+								><source
+									srcset="./lib/images/app-store@2x.png"
+									type="image/png"
+									width="324"
+									height="96" />
+								<img
+									src="./lib/images/app-store.png"
+									alt="Button to download the iOS app from the Apple App Store."
+									title="Download iOS on the App Store"
+									width="162"
+									height="48" /></picture
+						></a>
+						<a href="#"
+							><picture
+								><source
+									srcset="./lib/images/google-play@2x.png"
+									type="image/png"
+									width="320"
+									height="96"
+								/>
+								<img
+									src="./lib/images/google-play.png"
+									alt="Button to download the Android app from Google Play."
+									title="Get it on Google Play"
+									width="160"
+									height="48"
+								/> </picture
+						></a>
+					</div>
+				</div>
+				<div id="mockup"></div>
+			</section>
+			<section
+				id="how-it-works"
+				class="segment margin-vertical margin-horizontal center rows"
+			>
 				<header>
 					<h2>How it works</h2>
 				</header>
-				<div class="columns" id="steps">
-					<div class="step rows align-top">
+				<div id="steps" class="rows">
+					<div class="step rows">
 						<div class="center">
 							<img
 								src="./lib/images/icon-1.svg"
@@ -168,7 +138,7 @@
 							nespresso pods at any of our sixteen locations nationwide.
 						</p>
 					</div>
-					<div class="arrow align-top">
+					<div class="arrow">
 						<img
 							src="./lib/images/arrow.svg"
 							alt="An arrow pointing to the next step."
@@ -176,7 +146,7 @@
 							height="49"
 						/>
 					</div>
-					<div class="step rows align-top">
+					<div class="step rows">
 						<div class="center">
 							<img
 								src="./lib/images/icon-2.svg"
@@ -190,7 +160,7 @@
 							CoffeeDrop bag and bring them into store.
 						</p>
 					</div>
-					<div class="arrow align-top">
+					<div class="arrow">
 						<img
 							src="./lib/images/arrow.svg"
 							alt="An arrow pointing to the next step."
@@ -198,7 +168,7 @@
 							height="49"
 						/>
 					</div>
-					<div class="step rows align-top">
+					<div class="step rows">
 						<div class="center">
 							<img
 								src="./lib/images/icon-3.svg"
@@ -215,10 +185,10 @@
 					</div>
 				</div>
 			</section>
-			<section class="center dark segment">
-				<div class="margins-left-right rows" id="prices">
+			<section class="segment center dark">
+				<div id="prices" class="margin-vertical margin-horizontal rows">
 					<header><h2>Prices</h2></header>
-					<div class="columns" id="prices-columns">
+					<div id="prices-columns" class="rows">
 						<div>
 							<h3>The first 50 capsules:</h3>
 							<ul>
@@ -267,17 +237,20 @@
 				title="We have locations across the country!"
 			></div>
 		</main>
-		<footer id="footer" class="dark center">
-			<p>This app is powered by</p>
-			<a href="#"
-				><img
-					id="footer-logo"
-					src="./lib/images/footer-logo.svg"
-					alt="The CoffeeDrop logo."
-					title="CoffeeDrop"
-					width="179"
-					height="40"
-			/></a>
+		<!-- Footer -->
+		<footer class="center dark">
+			<div id="footer" class="margin-horizontal">
+				<p>This app is powered by</p>
+				<a href="#"
+					><img
+						id="footer-logo"
+						src="./lib/images/footer-logo.svg"
+						alt="The CoffeeDrop logo."
+						title="CoffeeDrop"
+						width="179"
+						height="40"
+				/></a>
+			</div>
 		</footer>
 		<!--https://developers.google.com/maps/documentation/javascript/overview-->
 		<!--TODO: Use a real API key (instead of the example one) with permissions configured for the relevant IP address of server to prevent `RefererNotAllowedMapError` error.-->

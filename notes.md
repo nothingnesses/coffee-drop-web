@@ -1,8 +1,5 @@
 ### todo
-* Sort out the misalignment and overflow issues.
-* Make header stick when scrolling so navbar is always accessible.
 * Use other image resolutions provided as well.
-* Make sure navigation links still work with screen readers in portrait.
 * Add animations to icons (on scroll) and buttons (on hover/click).
 * Periodically ping Image+ API to update map.
 * Use `Set` type to store locations when updating them, to prevent duplicates.
